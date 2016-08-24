@@ -19,7 +19,8 @@ import com.nihat.service.PersonServiceImpl;
 public class PersonController {
 
 	// log4j
-	private static final Logger logger = Logger.getLogger(PersonController.class);
+	private static final Logger logger = Logger
+			.getLogger(PersonController.class);
 
 	@Autowired
 	private PersonServiceImpl personServiceImpl;
@@ -55,8 +56,10 @@ public class PersonController {
 	@RequestMapping(value = "/person/update", method = RequestMethod.POST)
 	@ResponseBody
 	public Person updatePerson(HttpServletRequest request) {
-		Person person = personServiceImpl.updatePerson(request.getParameter("id"), request.getParameter("name"),
-				request.getParameter("surname"), request.getParameter("telNumber"));
+		Person person = personServiceImpl.updatePerson(
+				request.getParameter("id"), request.getParameter("name"),
+				request.getParameter("surname"),
+				request.getParameter("telNumber"));
 		logger.info("person updated");
 		return person;
 	}
